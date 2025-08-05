@@ -3,6 +3,9 @@ import { Button, Breadcrumbs, BreadcrumbItem } from '@igds/react';
 import './App.css'
 
 function App() {
+  const handleNavigate = (e: CustomEvent<{value: string}>) => {
+    console.log('navigate', e.detail.value);
+  }
 
   return (
     <section className="container">
@@ -16,41 +19,77 @@ function App() {
       <Button>כפתור בדיקה</Button>
 
       <section dir="rtl" style={{margin: '2rem 0 0'}}>
-        <Breadcrumbs label="Default Breadcrumbs">
-          <BreadcrumbItem href="/">
+        <Breadcrumbs label="Default Breadcrumbs" preventDefault>
+          <BreadcrumbItem 
+            href="/"
+            onIgdsNavigate={handleNavigate}
+          >
             דף הבית
           </BreadcrumbItem>
-          <BreadcrumbItem href="/services">
+          <BreadcrumbItem
+            href="/services"
+            onIgdsNavigate={handleNavigate}
+          >
             שירותים ומדורים
           </BreadcrumbItem>
-          <BreadcrumbItem href="/services/health">
+          <BreadcrumbItem
+            href="/services/health"
+            onIgdsNavigate={handleNavigate}
+          >
             בריאות הציבור
           </BreadcrumbItem>
-          <BreadcrumbItem href="/services/health/travel">
+          <BreadcrumbItem
+            href="/services/health/travel"
+            onIgdsNavigate={handleNavigate}
+          >
             נסיעות לחו"ל
           </BreadcrumbItem>
-          <BreadcrumbItem href="/services/health/travel/requirements">
+          <BreadcrumbItem
+            href="/services/health/travel/requirements"
+            onIgdsNavigate={handleNavigate}
+          >
             דרישות בריאותיות
           </BreadcrumbItem>
-          <BreadcrumbItem href="/services/health/travel/requirements/visa">
+          <BreadcrumbItem
+            href="/services/health/travel/requirements/visa"
+            onIgdsNavigate={handleNavigate}
+          >
             אישורי כניסה למדינות
           </BreadcrumbItem>
-          <BreadcrumbItem href="/services/health/travel/requirements/visa/asia">
+          <BreadcrumbItem
+            href="/services/health/travel/requirements/visa/asia"
+            onIgdsNavigate={handleNavigate}
+          >
             מדינות אסיה
           </BreadcrumbItem>
-          <BreadcrumbItem href="/services/health/travel/requirements/visa/asia/thailand">
+          <BreadcrumbItem
+            href="/services/health/travel/requirements/visa/asia/thailand"
+            onIgdsNavigate={handleNavigate}
+          >
             תאילנד
           </BreadcrumbItem>
-          <BreadcrumbItem href="/services/health/travel/requirements/visa/asia/thailand/vaccination">
+          <BreadcrumbItem
+            href="/services/health/travel/requirements/visa/asia/thailand/vaccination"
+            onIgdsNavigate={handleNavigate}
+          >
             חיסונים נדרשים
           </BreadcrumbItem>
-          <BreadcrumbItem href="/services/health/travel/requirements/visa/asia/thailand/vaccination/certificate">
+          <BreadcrumbItem
+            href="/services/health/travel/requirements/visa/asia/thailand/vaccination/certificate"
+            onIgdsNavigate={handleNavigate}
+          >
             תעודת חיסונים בינלאומית
           </BreadcrumbItem>
-          <BreadcrumbItem href="/services/health/travel/requirements/visa/asia/thailand/vaccination/certificate/apply">
+          <BreadcrumbItem
+            href="/services/health/travel/requirements/visa/asia/thailand/vaccination/certificate/apply"
+            onIgdsNavigate={handleNavigate}
+          >
             הגשת בקשה
           </BreadcrumbItem>
-          <BreadcrumbItem href="/services/health/travel/requirements/visa/asia/thailand/vaccination/certificate/apply/status">
+          <BreadcrumbItem
+            href="/services/health/travel/requirements/visa/asia/thailand/vaccination/certificate/apply/status"
+            onIgdsNavigate={handleNavigate}
+          >
             מעקב אחר בקשה
           </BreadcrumbItem>
         </Breadcrumbs>
