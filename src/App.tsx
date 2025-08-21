@@ -2,6 +2,10 @@ import logo from '/logo.png';
 import './App.css'
 import {Button} from '@igds/react/button';
 import {Breadcrumbs, BreadcrumbItem} from '@igds/react/breadcrumbs';
+import {Table, TableHeader, TableRow} from '@igds/react/table';
+import {Menu, MenuItem} from '@igds/react/menu';
+import {PopupMenu, PopupMenuItem} from '@igds/react/popup-menu';
+import {Icon} from '@igds/react/icon';
 
 function App() {
   const handleNavigate = (e: CustomEvent<{value: string}>) => {
@@ -9,15 +13,17 @@ function App() {
   }
 
   return (
-    <><section className="container">
-      <div>
-        <a href="https://igds-storybook.globalbit.dev/main/react/" target="_blank">
-          <img src={logo} className="logo" alt="IGDS logo" />
-        </a>
-      </div>
-      <h1>IGDS packages test</h1>
-      <Button>Click me</Button>
-    </section><Breadcrumbs label="Default Breadcrumbs" preventDefault>
+    <>
+      <section className="container">
+        <div>
+          <a href="https://igds-storybook.globalbit.dev/main/react/" target="_blank">
+            <img src={logo} className="logo" alt="IGDS logo" />
+          </a>
+        </div>
+        <h1>IGDS packages test</h1>
+        <Button>Click me</Button>
+      </section>
+      <Breadcrumbs label="Default Breadcrumbs" preventDefault>
         <BreadcrumbItem
           href="/"
           onIgdsNavigate={handleNavigate}
@@ -90,7 +96,124 @@ function App() {
         >
           מעקב אחר בקשה
         </BreadcrumbItem>
-      </Breadcrumbs></>
+      </Breadcrumbs><br/>
+      <Table>
+        <TableHeader columns={[
+          {
+            id: '1',
+            name: 'Name'
+          },
+          {
+            id: '2',
+            name: 'Quantity'
+          },
+          {
+            id: '3',
+            name: 'Action'
+          },
+          {
+            id: '4',
+            name: 'Measure'
+          },
+        ]}/>
+        <TableRow cells={[
+          {
+            value: 'Apples'
+          },
+          {
+            value: '12'
+          },
+          {
+            value: ''
+          },
+          {
+            value: 'boxes'
+          },
+        ]}/>
+        <TableRow cells={[
+          {
+            value: 'Water melon'
+          },
+          {
+            value: '300'
+          },
+          {
+            value: ''
+          },
+          {
+            value: 'ton'
+          },
+        ]}/>
+        <TableRow cells={[
+          {
+            value: 'Orange'
+          },
+          {
+            value: '15'
+          },
+          {
+            value: ''
+          },
+          {
+            value: 'ton'
+          },
+        ]}/>
+
+        <PopupMenu offset={8} slot="row=0:cell=2">
+          <Button
+            variant="link"
+            slot="trigger"
+          >
+            <Icon
+              name="more-vertical"
+              slot="icon"
+            />
+          </Button>
+          <PopupMenuItem id="delete-row=0:cell=2">
+            Delete
+          </PopupMenuItem>
+          <PopupMenuItem id="edit-row=0:cell=2">
+            Edit
+          </PopupMenuItem>
+        </PopupMenu>
+
+        <PopupMenu offset={8} slot="row=1:cell=2">
+          <Button
+            variant="link"
+            slot="trigger"
+          >
+            <Icon
+              name="more-vertical"
+              slot="icon"
+            />
+          </Button>
+          <PopupMenuItem id="delete-row=1:cell=2">
+            Delete
+          </PopupMenuItem>
+          <PopupMenuItem id="edit-row=1:cell=2">
+            Edit
+          </PopupMenuItem>
+        </PopupMenu>
+
+        <PopupMenu offset={8} slot="row=2:cell=2">
+          <Button
+            variant="link"
+            slot="trigger"
+          >
+            <Icon
+              name="more-vertical"
+              slot="icon"
+            />
+          </Button>
+          <PopupMenuItem id="delete-row=2:cell=2">
+            Delete
+          </PopupMenuItem>
+          <PopupMenuItem id="edit-row=2:cell=2">
+            Edit
+          </PopupMenuItem>
+        </PopupMenu>
+      </Table>
+    </>
   )
 }
 
